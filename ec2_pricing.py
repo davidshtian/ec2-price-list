@@ -65,7 +65,9 @@ def list2csv(slist, ocsv, instance_type):
 def price_csv_file(price_file):
     with open(price_file, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile) 
-        writer.writerow(double(regions))        
+        double_regions = double(regions)
+        double_regions.insert(0, "instance type")
+        writer.writerow(double_regions)        
 
     for instance_type in instance_types:
         price_list = [instance_type,]
